@@ -6,30 +6,26 @@
     <title>Lounge Bar | Il tuo angolo VIP su Discord</title>
     <meta name="description" content="Più di un server Discord, un vero club esclusivo. Entra nel Privé, unisciti ai salotti vocali e goditi l'atmosfera.">
     
-    <!-- Fonts: Montserrat per i titoli (elegante), Inter per il testo (leggibile) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome per le icone -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Configurazione Tailwind personalizzata -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         lounge: {
-                            deep: '#05000e',    /* Sfondo principale nerissimo */
-                            dark: '#10002B',    /* Il tuo codice viola/nero per le card */
-                            purple: '#3c096c',  /* Viola medio */
-                            neon: '#9d4edd',    /* Viola neon per i bagliori */
-                            gold: '#F4D03F',    /* Oro per accenti premium */
-                            text: '#e0e0e0'     /* Testo grigio chiaro per non affaticare gli occhi */
+                            deep: '#05000e',
+                            dark: '#10002B',
+                            purple: '#3c096c',
+                            neon: '#9d4edd',
+                            gold: '#F4D03F',
+                            text: '#e0e0e0'
                         }
                     },
                     fontFamily: {
@@ -58,28 +54,24 @@
     </script>
 
     <style>
-        /* Stili CSS aggiuntivi per effetti grafici avanzati */
         body {
             background-color: #05000e;
             color: #e0e0e0;
             overflow-x: hidden;
         }
 
-        /* Testo con gradiente oro */
         .text-gradient-gold {
             background: linear-gradient(to right, #F4D03F, #ffb703);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Testo con gradiente viola */
         .text-gradient-purple {
             background: linear-gradient(to right, #9d4edd, #c77dff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Effetto vetro (Glassmorphism) per navbar e card */
         .glass {
             background: rgba(16, 0, 43, 0.6);
             backdrop-filter: blur(12px);
@@ -87,7 +79,6 @@
             border: 1px solid rgba(157, 78, 221, 0.2);
         }
 
-        /* Effetto hover sulle card delle feature */
         .feature-card {
             transition: all 0.4s ease;
         }
@@ -97,7 +88,6 @@
             box-shadow: 0 10px 30px -10px rgba(157, 78, 221, 0.5);
         }
 
-        /* Animazione entrata elementi (gestita da JS) */
         .fade-in-up {
             opacity: 0;
             transform: translateY(30px);
@@ -108,7 +98,6 @@
             transform: translateY(0);
         }
 
-        /* Pattern di sfondo a griglia invisibile per dare texture */
         .bg-grid {
             background-size: 40px 40px;
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
@@ -118,25 +107,21 @@
 </head>
 <body class="antialiased bg-grid relative selection:bg-lounge-neon selection:text-white">
 
-    <!-- Elementi di sfondo animati (luci al neon sfocate) -->
     <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-lounge-purple rounded-full mix-blend-screen filter blur-[128px] opacity-30 animate-blob"></div>
         <div class="absolute top-[20%] right-[-10%] w-96 h-96 bg-lounge-dark rounded-full mix-blend-screen filter blur-[128px] opacity-50 animate-blob animation-delay-2000"></div>
         <div class="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-indigo-900 rounded-full mix-blend-screen filter blur-[128px] opacity-30 animate-blob animation-delay-4000"></div>
     </div>
 
-    <!-- Navbar -->
     <nav class="fixed w-full z-50 glass border-b-0 border-t-0 border-l-0 border-r-0 border-b border-white/5 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
                 <div class="flex-shrink-0 cursor-pointer">
                     <span class="font-heading font-black text-2xl tracking-wider text-white flex items-center gap-2">
                         <i class="fa-solid fa-martini-glass-citrus text-lounge-neon"></i>
                         LOUNGE<span class="font-light text-gray-400">BAR</span>
                     </span>
                 </div>
-                <!-- Links Desktop -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="#about" class="hover:text-white text-gray-300 transition-colors px-3 py-2 rounded-md text-sm font-medium">Il Locale</a>
@@ -147,13 +132,11 @@
                         </a>
                     </div>
                 </div>
-                <!-- Bottone Entra (Desktop) -->
                 <div class="hidden md:block">
                     <a href="https://discord.gg/SE95Xh4yYk" class="inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-bold rounded-full text-white bg-lounge-neon hover:bg-purple-600 transition-all shadow-[0_0_15px_rgba(157,78,221,0.5)] hover:shadow-[0_0_25px_rgba(157,78,221,0.8)]">
                         Entra nel Privé
                     </a>
                 </div>
-                <!-- Menu Mobile Button -->
                 <div class="-mr-2 flex md:hidden">
                     <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-white/10 focus:outline-none">
                         <i class="fa-solid fa-bars text-xl"></i>
@@ -161,7 +144,6 @@
                 </div>
             </div>
         </div>
-        <!-- Menu Mobile -->
         <div class="hidden md:hidden glass" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
                 <a href="#about" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Il Locale</a>
@@ -177,7 +159,6 @@
         </div>
     </nav>
 
-    <!-- Header / Hero Section -->
     <main class="relative z-10 pt-32 pb-16 sm:pt-40 sm:pb-24 lg:pb-32 flex flex-col items-center justify-center min-h-screen text-center px-4">
         <div class="fade-in-up">
             <span class="inline-block py-1 px-3 rounded-full glass text-lounge-gold text-sm font-semibold tracking-wide mb-6 border border-lounge-gold/30">
@@ -200,7 +181,6 @@
         </div>
     </main>
 
-    <!-- Sezione: L'Atmosfera (Puntata a farli entrare in Vocale) -->
     <section id="about" class="relative z-10 py-20 bg-lounge-deep/50 border-y border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -217,7 +197,6 @@
                     </p>
                     <div class="flex items-center gap-4">
                         <div class="flex -space-x-4">
-                            <!-- Avatar finti per mostrare che c'è gente in vocale -->
                             <img class="w-12 h-12 rounded-full border-2 border-lounge-deep object-cover" src="https://i.pravatar.cc/100?img=11" alt="User">
                             <img class="w-12 h-12 rounded-full border-2 border-lounge-deep object-cover" src="https://i.pravatar.cc/100?img=32" alt="User">
                             <img class="w-12 h-12 rounded-full border-2 border-lounge-deep object-cover" src="https://i.pravatar.cc/100?img=12" alt="User">
@@ -229,7 +208,6 @@
                     </div>
                 </div>
                 
-                <!-- Mockup finto di Discord in CSS -->
                 <div class="fade-in-up relative rounded-xl overflow-hidden glass p-1 transform rotate-2 hover:rotate-0 transition-transform duration-500 hidden md:block shadow-2xl">
                     <div class="bg-[#2b2d31] rounded-lg w-full p-4 border border-white/10 shadow-inner">
                         <div class="flex gap-2 mb-4 border-b border-white/10 pb-2">
@@ -238,7 +216,6 @@
                             <div class="w-3 h-3 rounded-full bg-green-500"></div>
                         </div>
                         <div class="space-y-4">
-                            <!-- Canale finto -->
                             <div>
                                 <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-1">
                                     <i class="fa-solid fa-chevron-down text-[10px]"></i> 🍸 Area Privè ✦
@@ -247,7 +224,6 @@
                                     <i class="fa-solid fa-volume-high text-gray-400"></i>
                                     <span class="text-white text-sm font-medium">Salotto Chill</span>
                                 </div>
-                                <!-- Utenti finti in vocale -->
                                 <div class="pl-6 space-y-2 mt-2">
                                     <div class="flex items-center gap-2">
                                         <div class="relative">
@@ -260,7 +236,7 @@
                                         <div class="relative">
                                             <img class="w-6 h-6 rounded-full outline outline-2 outline-green-500" src="https://i.pravatar.cc/100?img=32" alt="User">
                                         </div>
-                                        <span class="text-green-400 text-sm font-bold">Black Card Member</span> <!-- Parla -->
+                                        <span class="text-green-400 text-sm font-bold">Black Card Member</span>
                                     </div>
                                 </div>
                             </div>
@@ -271,7 +247,6 @@
         </div>
     </section>
 
-    <!-- Sezione: Feature / Servizi -->
     <section id="features" class="relative z-10 py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in-up">
@@ -280,7 +255,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Card 1 -->
                 <div class="feature-card glass p-8 rounded-2xl flex flex-col items-center text-center fade-in-up">
                     <div class="w-16 h-16 rounded-full bg-lounge-dark flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(157,78,221,0.3)] text-lounge-neon">
                         <i class="fa-solid fa-microphone-lines text-2xl"></i>
@@ -289,7 +263,6 @@
                     <p class="text-gray-400 text-sm leading-relaxed">Canali vocali organizzati per chillare, ascoltare musica o fare due chiacchiere senza il caos dei mega-server.</p>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="feature-card glass p-8 rounded-2xl flex flex-col items-center text-center fade-in-up" style="transition-delay: 100ms;">
                     <div class="w-16 h-16 rounded-full bg-lounge-dark flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(244,208,63,0.3)] text-lounge-gold">
                         <i class="fa-regular fa-gem text-2xl"></i>
@@ -298,7 +271,6 @@
                     <p class="text-gray-400 text-sm leading-relaxed">Fatti strada nel locale. Dal grado "Cliente" fino all'esclusiva "Black Card", sblocca vantaggi e stanze segrete.</p>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="feature-card glass p-8 rounded-2xl flex flex-col items-center text-center fade-in-up" style="transition-delay: 200ms;">
                     <div class="w-16 h-16 rounded-full bg-lounge-dark flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(56,189,248,0.3)] text-sky-400">
                         <i class="fa-solid fa-gamepad text-2xl"></i>
@@ -307,7 +279,6 @@
                     <p class="text-gray-400 text-sm leading-relaxed">Scegli i tuoi generi preferiti all'ingresso. Organizziamo partite no-toxic tra di noi per divertirci senza stress.</p>
                 </div>
 
-                <!-- Card 4 -->
                 <div class="feature-card glass p-8 rounded-2xl flex flex-col items-center text-center fade-in-up" style="transition-delay: 300ms;">
                     <div class="w-16 h-16 rounded-full bg-lounge-dark flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(236,72,153,0.3)] text-pink-500">
                         <i class="fa-solid fa-handshake text-2xl"></i>
@@ -319,7 +290,6 @@
         </div>
     </section>
 
-    <!-- Sezione: Ruoli Premium & OG -->
     <section id="vip" class="relative z-10 py-20 border-t border-white/5 bg-gradient-to-b from-lounge-deep to-[#10002B]/40">
         <div class="max-w-4xl mx-auto px-4 text-center fade-in-up">
             <i class="fa-solid fa-martini-glass-empty text-4xl text-lounge-gold mb-6 opacity-80"></i>
@@ -335,7 +305,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="relative z-10 glass border-t border-white/10 pt-16 pb-8 text-center mt-20">
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="font-heading font-black text-2xl tracking-wider text-white mb-6">
@@ -346,7 +315,6 @@
                 Unisciti a noi, porta un drink e preparati a passare le migliori serate su Discord. Il tavolo è prenotato a tuo nome.
             </p>
             
-            <!-- Link Social / TikTok -->
             <div class="flex justify-center space-x-6 mb-10">
                 <a href="https://www.tiktok.com/@lounge._.bar?lang=en" target="_blank" class="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-300 hover:text-white hover:bg-[#ff0050] transition-all transform hover:scale-110 shadow-lg">
                     <i class="fa-brands fa-tiktok text-xl"></i>
@@ -362,10 +330,8 @@
         </div>
     </footer>
 
-    <!-- Script per le animazioni allo scorrimento -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Intersection Observer per animazioni Fade-in
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
@@ -376,7 +342,7 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); // Anima solo una volta
+                        observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
@@ -384,7 +350,6 @@
             const fadeElements = document.querySelectorAll('.fade-in-up');
             fadeElements.forEach(el => observer.observe(el));
 
-            // Navbar Blur effect on scroll
             window.addEventListener('scroll', () => {
                 const navbar = document.getElementById('navbar');
                 if (window.scrollY > 50) {
